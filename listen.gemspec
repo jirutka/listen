@@ -27,7 +27,6 @@ Gem::Specification.new do |s|
     require 'ruby_dep/travis'
     s.required_ruby_version = RubyDep::Travis.new.version_constraint
   rescue LoadError
-    abort "Install 'ruby_dep' gem before building this gem"
   end
 
   # Used to show warnings at runtime
