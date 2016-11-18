@@ -22,9 +22,9 @@ module Listen
       EOS
 
       def self.usable?
-        require 'rb-fsevent'
         darwin_version = RbConfig::CONFIG['target_os'][OS_REGEXP, :major_version] or return false
         return true if darwin_version.to_i >= 13 # darwin13 is OS X 10.9
+        require 'rb-fsevent'
         return true if Gem::Version.new(FSEvent::VERSION) <= Gem::Version.new('0.9.4')
         Kernel.warn INCOMPATIBLE_GEM_VERSION
         false
